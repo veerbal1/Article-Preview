@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/style.css">
+
+  <title>Frontend Mentor | Article preview component</title>
+</head>
+
+<body>
+  <div id="page-wrapper">
+    <div id="card-wrapper">
+      <div id="image-container">
+        <img src="./images/drawers.jpg" alt="">
+      </div>
+      <div id="card-content-container">
+        <div id="card-text-wrapper">
+          <div id="main-text">
+            Shift the overall look and feel by <br /> adding these wonderful touches to furniture in your home
+          </div>
+          <div id="desc">
+            Ever been in a room and felt like <br />something was missing? Perhaps
+            it felt <br />slightly bare and uninviting. I’ve got some <br /> simple tips
+            to help you make any room feel <br />complete.
+          </div>
+        </div>
+        <div id="card-bottom-section">
+          <div id="profile-section">
+            <div id="profile-img-wrapper">
+              <img src="./images/avatar-michelle.jpg" alt="">
+            </div>
+            <div id="profile-desc">
+              <div id="profile-name">Michelle Appleton</div>
+              <div id="profile-since">28 Jun 2020</div>
+            </div>
+            <div id="share-btn"> <img src="./images/icon-share.svg" alt=""></div>
+          </div>
+          <div id="share-section">
+            <div id="social-media-btns">
+              <span><img src="./images/icon-facebook.svg" alt="" srcset=""></span>
+              <span><img src="./images/icon-twitter.svg" alt="" srcset=""></span>
+              <span><img src="./images/icon-pinterest.svg" alt="" srcset=""></span>
+              <div id="share-label">
+                SHARE
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="https://www.linkedin.com/in/veerbal1" target="_blank">Veerbal Singh</a>.
+    </div>
+  </div>
+  <!-- Shift the overall look and feel by adding these wonderful 
+  touches to furniture in your home
+
+  Ever been in a room and felt like something was missing? Perhaps 
+  it felt slightly bare and uninviting. I’ve got some simple tips 
+  to help you make any room feel complete.
+
+  Michelle Appleton
+  28 Jun 2020
+
+  Share -->
+  <script>
+    let shareBtn = document.getElementById('share-btn');
+    let shareSection = document.getElementById('share-section');
+
+    shareBtn.addEventListener('click', () => {
+      if (screen.width < 720) {
+        if (shareSection.style.width === '') {
+          shareSection.style.width = '100%';
+        } else {
+          shareSection.style.width = '';
+          document.querySelector('#social-media-btns').style.opacity = 0;
+        }
+        shareSection.addEventListener('transitionend', () => {
+          if (shareSection.style.width === '') {
+            document.querySelector('#social-media-btns').style.opacity = 0;
+          } else {
+            document.querySelector('#social-media-btns').style.opacity = 1;
+          }
+        });
+      }else{
+        if (shareSection.style.height === '') {
+          // shareSection.style.width = '240px';
+          shareSection.style.display = 'flex';
+          shareSection.style.height = '50px';
+          document.querySelector('#social-media-btns').style.opacity = 1;
+        } else {
+          shareSection.style.height = '';
+          shareSection.style.display = 'none';
+          document.querySelector('#social-media-btns').style.opacity = 0;
+        }
+        shareSection.addEventListener('transitionend', () => {
+          if (shareSection.style.height === '') {
+            // document.querySelector('#social-media-btns').style.opacity = 0;
+            // shareSection.style.display = 'none';
+          } else {
+            document.querySelector('#social-media-btns').style.opacity = 1;
+            // shareSection.style.display = 'flex';
+          }
+        });
+      }
+    });
+
+  </script>
+
+</body>
+
+</html>
